@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
+  <title id="title">Warehouse Manager</title>
+  <desc id="desc">Dispatch, returns and recovered stock. A navy and cyan project showcase banner.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071321"/>
+      <stop offset="1" stop-color="#10263b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#67e8f9"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1198" height="258" rx="20" fill="url(#background)" stroke="#214058"/>
+  <path d="M49 62V198" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="76" y="78" fill="#67e8f9" font-size="14" letter-spacing="3">PROJECT SHOWCASE / OPERATIONS</text>
+    <text x="73" y="139" fill="#f1f5f9" font-size="52" font-weight="700">Warehouse Manager</text>
+    <text x="76" y="180" fill="#b7cbdc" font-size="21">Dispatch, returns &amp; recovered stock</text>
+  </g>
+  <g fill="none" stroke="#24465e" stroke-width="2">
+    <path d="M929 55H1135V205H929Z M929 105H1135 M929 155H1135 M998 55V205 M1067 55V205"/>
+    <path d="M946 72H981V91H946Z M1015 122H1050V141H1015Z M1084 172H1119V191H1084Z" fill="#17354b"/>
+  </g>
+  <path d="M963 81H1102V131H1033V181H963" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#67e8f9">
+    <circle cx="963" cy="81" r="5"/>
+    <circle cx="1033" cy="131" r="5"/>
+    <circle cx="963" cy="181" r="5"/>
+  </g>
+</svg>

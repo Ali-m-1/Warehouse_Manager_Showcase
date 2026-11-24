@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="870" viewBox="20 75 1240 870" role="img" aria-labelledby="title desc">
+<title id="title">Warehouse Manager — Application architecture</title>
+<desc id="desc">A browser connects to the central Django application. OData exports pass through preparation and import into SQLite. Django accesses file storage and generates DOCX vouchers, which LibreOffice converts to PDF.</desc>
+<defs>
+ <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#247BA4" stroke-width="1.7" stroke-linejoin="round" /></marker>
+ <linearGradient id="hub" x2="1" y2="1"><stop stop-color="#102B46" /><stop offset="1" stop-color="#174B64" /></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#173149" flood-opacity=".05" /></filter>
+</defs>
+<rect width="1280" height="990" rx="18" fill="#F5F8FC" />
+
+<text x="45" y="113" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#60788C">Dispatch import</text>
+<path d="M350 108H1235" fill="none" stroke="#D8E3EC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="45" y="319" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#60788C">Application</text>
+<path d="M350 314H1235" fill="none" stroke="#D8E3EC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="45" y="713" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#60788C">Documents</text>
+<path d="M350 708H1235" fill="none" stroke="#D8E3EC" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<rect x="60" y="140" width="290" height="130" rx="9" fill="white" stroke="#AFBFCE" filter="url(#shadow)" />
+<g transform="translate(79,159) scale(1)" fill="none" stroke="#147F9F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="2" width="18" height="21" rx="2" /><path d="M3 8H21M3 13H21M3 18H21M9 8V23" />
+</g>
+<text x="119" y="180" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="600" fill="#102B46">OData exports</text>
+<text x="80" y="215" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">Dispatch records</text>
+<rect x="480" y="140" width="320" height="130" rx="9" fill="white" stroke="#AFBFCE" filter="url(#shadow)" />
+<g transform="translate(499,159) scale(1)" fill="none" stroke="#147F9F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M3 6H20L16 2M20 18H3L7 22M20 6L16 10M3 18L7 14" /><path d="M8 10H16M8 14H16" />
+</g>
+<text x="539" y="180" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="600" fill="#102B46">Batch preparation</text>
+<text x="500" y="215" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">pandas → Parquet</text>
+<rect x="950" y="140" width="270" height="130" rx="9" fill="white" stroke="#AFBFCE" filter="url(#shadow)" />
+<g transform="translate(969,159) scale(1)" fill="none" stroke="#147F9F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<rect x="1" y="2" width="23" height="20" rx="3" /><path d="M6 8L10 12L6 16M14 16H20" />
+</g>
+<text x="1009" y="180" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="600" fill="#102B46">Import command</text>
+<text x="970" y="215" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">Django management command</text>
+<rect x="60" y="370" width="290" height="190" rx="9" fill="white" stroke="#AFBFCE" filter="url(#shadow)" />
+<path d="M60 409H350" fill="none" stroke="#C4D4E2" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="79" cy="390" r="3.5" fill="#8FA9BF" />
+<circle cx="91" cy="390" r="3.5" fill="#8FA9BF" />
+<circle cx="103" cy="390" r="3.5" fill="#8FA9BF" />
+<rect x="122" y="382" width="204" height="15" rx="4" fill="#EDF3F8" stroke="none" />
+<rect x="80" y="429" width="48" height="105" rx="5" fill="#E7F1F7" stroke="none" />
+<path d="M90 441H116" fill="none" stroke="#83B2CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M90 456H116" fill="none" stroke="#83B2CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M90 471H116" fill="none" stroke="#83B2CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<text x="143" y="450" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="600" fill="#102B46">Staff browser</text>
+<text x="143" y="479" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">HTML · HTMX</text>
+<text x="143" y="506" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#304C65">Tailwind CSS</text>
+<rect x="480" y="355" width="320" height="245" rx="20" fill="url(#hub)" stroke="#102B46" filter="url(#shadow)" />
+<rect x="505" y="378" width="52" height="52" rx="12" fill="#1C536A" stroke="none" />
+<g transform="translate(518,390) scale(1)" fill="none" stroke="#76E5EE" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M1 9L13 2L25 9V24H1ZM5 24V13H21V24M5 18H21M13 13V24" />
+</g>
+<text x="575" y="400" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#76E5EE">DJANGO</text>
+<text x="505" y="469" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600" fill="white">Warehouse Manager</text>
+<path d="M505 488H775" fill="none" stroke="#387187" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+<text x="505" y="527" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#E0EFF7">Returns · stock · handovers</text>
+<path d="M960 395V535C960 567 1210 567 1210 535V395Z" fill="white" stroke="#7D9BB4" stroke-width="1.6" filter="url(#shadow)" />
+<ellipse cx="1085" cy="395" rx="125" ry="28" fill="#E1F2F7" stroke="#247BA4" stroke-width="1.6" />
+<text x="1085" y="402" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#102B46">SQLite</text>
+<text x="1085" y="459" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" fill="#102B46">Relational store</text>
+<text x="1085" y="493" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#304C65">Units · returns · vouchers</text>
+<path d="M60 794V771Q60 760 71 760H160L181 779H339Q350 779 350 790V918H60Z" fill="#E1F2F7" stroke="#7D9BB4" stroke-width="1.6" />
+<rect x="60" y="796" width="290" height="122" rx="10" fill="white" stroke="#7D9BB4" />
+<text x="82" y="830" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="600" fill="#102B46">File storage</text>
+<text x="82" y="858" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">Filesystem</text>
+<text x="82" y="884" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="400" fill="#304C65">Photos · archived &amp; signed PDFs</text>
+<path d="M480 760H768L800 792V918H480Z" fill="white" stroke="#7D9BB4" stroke-width="1.6" filter="url(#shadow)" />
+<path d="M768 760V792H800" fill="none" stroke="#247BA4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<g transform="translate(500,778) scale(1)" fill="none" stroke="#147F9F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 1H16L23 8V25H5ZM16 1V8H23M9 13H19M9 18H19" />
+</g>
+<text x="500" y="838" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="600" fill="#102B46">Voucher document</text>
+<text x="500" y="866" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">python-docx</text>
+<path d="M960 760H1178L1210 792V918H960Z" fill="white" stroke="#7D9BB4" stroke-width="1.6" filter="url(#shadow)" />
+<path d="M1178 760V792H1210" fill="none" stroke="#247BA4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+<g transform="translate(980,778) scale(1)" fill="none" stroke="#147F9F" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 1H16L23 8V25H5ZM16 1V8H23M9 13H19M9 18H19" />
+</g>
+<text x="980" y="838" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="600" fill="#102B46">Printable PDF</text>
+<text x="980" y="866" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="600" fill="#147F9F">Headless LibreOffice</text>
+<path d="M350 205H480" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="381.0" y="177" width="68" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="415" y="194" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Exports</text>
+<path d="M800 205H950" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="839.0" y="177" width="72" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="875" y="194" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Parquet</text>
+<path d="M1085 270V365" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="1014.0" y="284" width="142" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="1085" y="301" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Validated records</text>
+<path d="M350 465H480" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+<rect x="385.0" y="435" width="60" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="415" y="452" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">HTML</text>
+<path d="M800 465H960" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+<rect x="830.0" y="435" width="100" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="880" y="452" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Read / write</text>
+<path d="M480 550H415V855H350" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" marker-start="url(#arrow)" />
+<rect x="391.0" y="650" width="48" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="415" y="667" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Files</text>
+<path d="M640 600V760" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="567.0" y="651" width="146" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="640" y="668" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">Generate voucher</text>
+<path d="M800 843H960" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="850.0" y="813" width="60" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="880" y="830" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">DOCX</text>
+<path d="M1085 760V657H880V550H800" fill="none" stroke="#247BA4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<rect x="925.0" y="640" width="120" height="25" rx="5" fill="#F5F8FC" stroke="none" />
+<text x="985" y="657" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="500" fill="#45617B">PDF response</text>
+</svg>

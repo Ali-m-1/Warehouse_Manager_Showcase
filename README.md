@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>From dispatched replacement to recovered stock—keep every unit accounted for.</strong>
+  <strong>Follow dispatched units through return, recovered stock, and documented handover.</strong>
 </p>
 
 <p align="center">
@@ -20,7 +20,8 @@
   <a href="#app-walkthrough">Walkthrough</a> ·
   <a href="#application-architecture">Architecture</a> ·
   <a href="#data-architecture">Data model</a> ·
-  <a href="#engineering-decisions">Engineering</a>
+  <a href="#engineering-decisions">Engineering</a> ·
+  <a href="#testing-and-limitations">Testing</a>
 </p>
 
 ## The problem
@@ -133,9 +134,9 @@ Django serves the interface and operational workflows. HTMX updates tables, filt
 | Layer | Technologies | Responsibility |
 | --- | --- | --- |
 | Interface | Django templates, HTMX, Tailwind CSS | Pages, partial updates, and server-calculated SVG dashboard charts. |
-| Application | Python, Django | Session authentication, forms, business rules, and persistence. Django was selected for its built-in security features. |
-| Storage | SQLite, filesystem | Operational records, photos, and documents. SQLite keeps setup simple during early development. |
-| Import preparation | pandas, Parquet, openpyxl | Prepare OData exports as Parquet for faster loading of large datasets; produce an Excel inspection copy. |
+| Application | Python, Django | Session authentication, forms, business rules, and persistence. |
+| Storage | SQLite, filesystem | Operational records, photos, and documents. |
+| Import preparation | pandas, Parquet, openpyxl | Prepare OData exports as Parquet and produce an Excel inspection copy. |
 | Documents | python-docx, headless LibreOffice | Populate the voucher template and convert it to PDF during confirmation. |
 | File validation | Pillow, pypdf | Validate uploaded images and PDFs. |
 
@@ -168,7 +169,6 @@ A service order can span several dispatches; each dispatch maps to at most one s
 
 ## Engineering decisions
 
-<img src="img/badges/tests.svg" alt="35 automated tests passing" height="28">
 
 **Preserve identity across imports.** Reloading dispatch data reuses existing numbered units so their return records remain attached to the same unit.
 
@@ -183,11 +183,11 @@ A service order can span several dispatches; each dispatch maps to at most one s
 
 **Imports.** Dispatch and part consolidation determines unit quantities. Ambiguous mappings or incompatible reductions stop the import for reconciliation rather than silently changing tracked identities.
 
-**Voucher issuance.** Availability is rechecked at confirmation; PDF generation and archiving occur during the operation. Tests cover duplicate submissions and rollback. Concurrent confirmations have not been verified in the evidence review.
+**Voucher issuance.** Availability is rechecked at confirmation; PDF generation and archiving occur during the operation. Tests cover duplicate submissions and rollback.
 
 **Photo evidence.** Photos are staged by user and unit and validated before save. Existing-photo deletion waits until a confirmed update commits. This requires draft expiry and cleanup logic.
 
-**Signed documents.** Original and current signed PDFs remain separately accessible. Validation and stale-request checks protect updates; signature presence relies on the uploader’s confirmation. Complete signed-copy version history is outside the current implementation.
+**Signed documents.** Original and current signed PDFs remain separately accessible. Validation and stale-request checks protect updates; signature presence relies on the uploader’s confirmation.
 
 </details>
 
@@ -201,7 +201,6 @@ The application supports return follow-up, recovered-unit lookup, documented sto
 - Each unit’s recorded lifecycle ends at stock issue, with partial history rather than a complete event log.
 - Imports run in batches; scheduled refresh and additional reconciliation work remain unfinished.
 
-Operational benefits have not been measured; no reduction in losses, fraud, or processing time is claimed.
 
 ---
 

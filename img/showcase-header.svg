@@ -1,31 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
   <title id="title">Warehouse Manager</title>
-  <desc id="desc">Dispatch, returns and recovered stock. A navy and cyan project showcase banner.</desc>
+  <desc id="desc">Dispatch, returns &amp; recovered stock. Navy and cyan showcase header with a subtle eighteen-second border highlight.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#071321"/>
-      <stop offset="1" stop-color="#10263b"/>
+      <stop stop-color="#0B1420"/>
+      <stop offset="0.65" stop-color="#111F2D"/>
+      <stop offset="1" stop-color="#132A39"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#67e8f9"/>
-    </linearGradient>
+    <radialGradient id="glow">
+      <stop stop-color="#38BDF8" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#7DD3FC" fill-opacity="0.10"/>
+    </pattern>
+    <clipPath id="header-clip"><rect x="1" y="1" width="1198" height="258" rx="22"/></clipPath>
   </defs>
-  <rect x="1" y="1" width="1198" height="258" rx="20" fill="url(#background)" stroke="#214058"/>
-  <path d="M49 62V198" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <rect x="1" y="1" width="1198" height="258" rx="22" fill="url(#background)" stroke="#294052"/>
+  <g clip-path="url(#header-clip)">
+    <circle cx="1040" cy="126" r="230" fill="url(#glow)"/>
+    <rect x="838" y="28" width="340" height="204" fill="url(#dots)"/>
+    <g fill="none" stroke="#7DD3FC" stroke-width="1">
+      <circle cx="1190" cy="-8" r="210" stroke-opacity="0.09"/>
+      <circle cx="1190" cy="-8" r="164" stroke-opacity="0.06"/>
+      <circle cx="-24" cy="282" r="88" stroke-opacity="0.05"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#7DD3FC" stroke-width="1.5" stroke-linecap="round">
+    <rect x="1" y="1" width="1198" height="258" rx="22" pathLength="1000" stroke-dasharray="60 940" opacity="0.10">
+      <animate attributeName="stroke-dashoffset" values="0;-1000" dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="1198" height="258" rx="22" pathLength="1000" stroke-dasharray="30 970" opacity="0.22">
+      <animate attributeName="stroke-dashoffset" values="0;-1000" dur="18s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1" y="1" width="1198" height="258" rx="22" pathLength="1000" stroke-dasharray="8 992" opacity="0.65">
+      <animate attributeName="stroke-dashoffset" values="0;-1000" dur="18s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <rect x="64" y="48" width="38" height="3" rx="1.5" fill="#38BDF8" opacity="0.7"/>
   <g font-family="Segoe UI, Arial, sans-serif">
-    <text x="76" y="78" fill="#67e8f9" font-size="14" letter-spacing="3">PROJECT SHOWCASE / OPERATIONS</text>
-    <text x="73" y="139" fill="#f1f5f9" font-size="52" font-weight="700">Warehouse Manager</text>
-    <text x="76" y="180" fill="#b7cbdc" font-size="21">Dispatch, returns &amp; recovered stock</text>
+    <text x="64" y="85" fill="#7FAFC5" font-size="15" font-weight="500" letter-spacing="1.8">WAREHOUSE OPERATIONS</text>
+    <text x="62" y="140" fill="#F1F5F9" font-size="43" font-weight="600">Warehouse Manager</text>
+    <text x="64" y="180" fill="#A6B3C2" font-size="21" font-weight="400">Dispatch, returns &amp; recovered stock</text>
   </g>
-  <g fill="none" stroke="#24465e" stroke-width="2">
-    <path d="M929 55H1135V205H929Z M929 105H1135 M929 155H1135 M998 55V205 M1067 55V205"/>
-    <path d="M946 72H981V91H946Z M1015 122H1050V141H1015Z M1084 172H1119V191H1084Z" fill="#17354b"/>
-  </g>
-  <path d="M963 81H1102V131H1033V181H963" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <g fill="#67e8f9">
-    <circle cx="963" cy="81" r="5"/>
-    <circle cx="1033" cy="131" r="5"/>
-    <circle cx="963" cy="181" r="5"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M944 63V197M1110 63V197M944 108H1110M944 154H1110M944 197H1110" stroke="#81BDD2"/>
+    <rect x="958" y="73" width="43" height="35" rx="3" fill="#142B3B" stroke="#6CA4BD"/>
+    <path d="M975 73V84H985V73" stroke="#426277"/>
+    <rect x="1045" y="119" width="48" height="35" rx="3" fill="#142B3B" stroke="#6CA4BD"/>
+    <path d="M1063 119V130H1075V119" stroke="#426277"/>
+    <rect x="958" y="165" width="43" height="32" rx="3" fill="#142B3B" stroke="#6CA4BD"/>
+    <path d="M975 165V175H985V165" stroke="#426277"/>
+    <path d="M1077 180H1040C1028 180 1020 173 1020 161V139M1012 147L1020 139L1028 147" stroke="#7DD3FC" stroke-opacity="0.8"/>
   </g>
 </svg>
